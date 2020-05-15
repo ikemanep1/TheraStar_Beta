@@ -1,9 +1,9 @@
 import React from 'react';
-import ConfirmationArticleAdd from './ConfirmationArticleAdd';
-import ArticleAdd from './ArticleAdd';
+import ConfirmationMhpAdd from './ConfirmationMhpAdd';
+import MhpAdd from './MhpAdd';
 import PropTypes from "prop-types";
 
-class NewArticleControl extends React.Component {
+class NewMhpControl extends React.Component {
 
   constructor(props) {
     super(props);
@@ -20,9 +20,9 @@ class NewArticleControl extends React.Component {
   render(){
     let currentlyVisibleContent = null;
     if (this.state.formVisibleOnPage){
-      currentlyVisibleContent = <ArticleAdd onNewArticleCreation={this.props.onNewArticleCreation}/>;
+      currentlyVisibleContent = <MhpAdd onNewMhpCreation={this.props.onNewMhpCreation}/>;
     } else {
-      currentlyVisibleContent = <ConfirmationArticleAdd onAddConfirmation={this.AddConfirmation}/>;
+      currentlyVisibleContent = <ConfirmationMhpAdd onAddConfirmation={this.AddConfirmation}/>;
     }
     return (
       <div>
@@ -32,8 +32,8 @@ class NewArticleControl extends React.Component {
   }
 }
 
-NewArticleControl.propTypes = {
-  onNewArticleCreation: PropTypes.func
+NewMhpControl.propTypes = {
+  onNewMhpCreation: PropTypes.func
 };
 
-export default NewArticleControl;
+export default NewMhpControl;

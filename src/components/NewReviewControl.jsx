@@ -1,5 +1,5 @@
 import React from 'react';
-import ConfirmationAdd from './ConfirmationAdd';
+import ConfirmationReviewAdd from './ConfirmationReviewAdd';
 import ReviewAdd from './ReviewAdd';
 import PropTypes from "prop-types";
 
@@ -22,7 +22,7 @@ class NewReviewControl extends React.Component {
     if (this.state.formVisibleOnPage){
       currentlyVisibleContent = <ReviewAdd onNewReviewCreation={this.props.onNewReviewCreation}/>;
     } else {
-      currentlyVisibleContent = <ConfirmationAdd onAddConfirmation={this.AddConfirmation}/>;
+      currentlyVisibleContent = <ConfirmationReviewAdd onAddConfirmation={this.AddConfirmation}/>;
     }
     return (
       <div>

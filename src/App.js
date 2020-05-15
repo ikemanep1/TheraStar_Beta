@@ -7,6 +7,7 @@ import MhpList from './components/MhpList';
 import ReviewList from './components/ReviewList';
 import NewArticleControl from './components/NewArticleControl';
 import NewReviewControl from './components/NewReviewControl';
+import NewMhpControl from './components/NewMhpControl';
 import Error404 from './components/Error404';
 import {Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -69,6 +70,12 @@ class App extends React.Component {
     newMasterReviewList.push(newReview);
     this.setState({masterReviewList: newMasterReviewList});
   }
+
+  handleAddingNewMhpToList(newMhp) {
+    let newMasterMhpList = this.state.masterMhpList.slice();
+    newMasterMhpList.push(newMhp);
+    this.setState({masterMhpList: newMasterMhpList});
+  }
   render() {
 
     const mhpSingular = {
@@ -100,11 +107,12 @@ class App extends React.Component {
         <div>
         <Switch>
         <Route exact path='/' render={() =>< Map mhpTotal= {this.state.state1Items} />}/>
-        <Route path='/mhplist' render={() =>< MhpList mhpTotal = {this.state.state1Items} />}/>
+        <Route exact path='/mhplist' render={() =>< MhpList mhpTotal = {this.state.state1Items} />}/>
+        <Route exact path='/articlelist' render={() =>< ArticleList articleTotal = {this.state.state2Items} />}/>
+        <Route exact path='/reviewlist' render={() =>< ReviewList reviewTotal = {this.state.state3Items} />}/>
+        <Route path='/mhpadd' render={()=>< NewMhpControl onNewMhpCreation={this.handleAddingNewMhpToList} />} />
         <Route path='/articleadd' render={()=>< NewArticleControl onNewArticleCreation={this.handleAddingNewArticleToList} />} />
         <Route path='/reviewadd' render={()=>< NewReviewControl onNewReviewCreation={this.handleAddingNewReviewToList} />} />
-        <Route exact path='/reviewlist' render={() =>< ReviewList reviewTotal = {this.state.state3Items} />}/>
-        <Route exact path='/articlelist' render={() =>< ArticleList articleTotal = {this.state.state2Items} />}/>
         <Route component={Error404} />
         </Switch>
         <Footer />

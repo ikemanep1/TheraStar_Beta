@@ -1,9 +1,10 @@
 import React from "react";
 import {Button} from 'react-bootstrap';
+import { FaFacebookSquare, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 function Footer(){
   const footerStyle = {
-    backgroundColor: "#ffccff",
+    backgroundColor: "#7a387a",
     padding: "5px",
     textDecoration: 'none',
     textAlign: 'center',
@@ -18,21 +19,11 @@ function Footer(){
     borderTopLeftRadius: '100px',
     borderTop: '3px solid #ddb0dd',
   }
-  const buttonColors = {
-    marginLeft: '10px',
-    border: "3px solid #fff285",
-    color: "white",
-    backgroundColor: "#c06cc6",
-    padding: "10px",
-    textDecoration: 'none',
-    fontSize: '20px',
-    borderRadius: '20px'
-  }
   return (
     <div style={footerStyle}>
-    <a href={`https://facebook.com`} ><Button style={buttonColors}>Facebook</Button></a>
-    <a href={`https://twitter.com`} ><Button style={buttonColors}>Twitter</Button></a>
-    <a href={`https://instagram.com`} ><Button style={buttonColors}>Instagram</Button></a>
+    <a href={`https://facebook.com`} ><FaFacebookSquare color="#ff80ff" style={{marginLeft:'20px'}} /></a>
+    <a href={`https://twitter.com`} ><FaTwitter color="#ff80ff" style={{marginLeft:'20px'}} /></a>
+    <a href={`https://instagram.com`} ><FaInstagram color="#ff80ff" style={{marginLeft:'20px'}} /></a>
     </div>
   );
 }

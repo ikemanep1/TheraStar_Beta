@@ -4,34 +4,30 @@ import {Button} from 'react-bootstrap';
 
 function ReviewAdd(props) {
   let _name = null;
-  let _subject = null;
-  let _rating = null;
   let _content = null;
 
 
   function handleNewReviewSubmission(event) {
     event.preventDefault();
-    props.onNewReviewCreation({name: _name.value, subject: _subject.value, rating: _rating.value, content: _content.value});
+    props.onNewReviewCreation({name: _name.value, content: _content.value});
     _name.value = '';
-    _subject.value = '';
-    _rating.value = '';
     _content.value = '';
   }
   const reviewFormStyles = {
     margin: '40px',
     textAlign: 'center',
-    backgroundColor: '#c06cc6',
+    backgroundColor: '#7a387a',
     padding: '20px',
     borderRadius: '100px',
     border: '3px solid #ddb0dd',
-    fontFamily: 'luminari, fantasy',
+    fontFamily: 'Arial',
     color: '#fdfdff',
   }
   const buttonColors = {
     marginLeft: '10px',
     border: "3px solid #fff285",
     color: "white",
-    backgroundColor: "#7a387a",
+    backgroundColor: "#c06cc6",
     padding: "10px",
     textDecoration: 'none',
     fontSize: '20px',
@@ -48,16 +44,6 @@ function ReviewAdd(props) {
     id='name'
     placeholder='Your Name'
     ref={(input) => {_name = input;}}/>
-    <input style={inputStyles}
-    type='text'
-    id='subject'
-    placeholder='What are you reviewing?'
-    ref={(input) => {_subject = input;}}/>
-    <input style={inputStyles}
-    type='text'
-    id='rating'
-    placeholder='Review Rating (1-5)'
-    ref={(input) => {_rating = input;}}/>
     <input style={inputStyles}
     type='text'
     id='content'

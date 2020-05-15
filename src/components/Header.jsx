@@ -5,11 +5,11 @@ import logo from '../img/logo.png';
 
 function Header(){
   const headerStyle = {
-    backgroundColor: "#ffccff",
+    backgroundColor: "#7a387a",
     padding: "5px",
     textDecoration: 'none',
     textAlign: 'center',
-    fontFamily: 'fantasy',
+    fontFamily: 'Arial',
     borderBottom: '3px solid #ddb0dd',
     color: '#cc6699',
     fontSize: "20px",
@@ -42,8 +42,9 @@ function Header(){
     <Link to="/"><Button style={buttonColors}>Home</Button></Link>
     <Link to="/mhplist"><Button style={buttonColors}>Therapists</Button></Link>
     <Link to="/articlelist"><Button style={buttonColors}>Resources</Button></Link>
-    <Link to="/articleadd"><Button style={buttonColors}>Add article</Button></Link>
     <Link to="/reviewlist"><Button style={buttonColors}>Reviews</Button></Link>
+    <Link to="/mhpadd"><Button style={buttonColors}>Add mhp</Button></Link>
+    <Link to="/articleadd"><Button style={buttonColors}>Add article</Button></Link>
     <Link to="/reviewadd"><Button style={buttonColors}>Provide Feedback</Button></Link>
     </div>
     </div>

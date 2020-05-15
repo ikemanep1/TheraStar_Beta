@@ -25,7 +25,7 @@ function ReviewAdd(props) {
   }
   const buttonColors = {
     marginLeft: '10px',
-    border: "3px solid #fff285",
+    border: "3px solid #ffccff",
     color: "white",
     backgroundColor: "#c06cc6",
     padding: "10px",

@@ -1,18 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
 
-function ReviewAdd(props) {
-  let _name = null;
-  let _content = null;
-
-
-  function handleNewReviewSubmission(event) {
-    event.preventDefault();
-    props.onNewReviewCreation({name: _name.value, content: _content.value});
-    _name.value = '';
-    _content.value = '';
+class ReviewAdd extends React.Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    
+    fetch('http://localhost:3000/reviews?', {
+      method: 'POST',
+      body: data,
+    });
+  }
+
+  render() {
   const reviewFormStyles = {
     margin: '40px',
     textAlign: 'center',
@@ -38,25 +43,19 @@ function ReviewAdd(props) {
   }
   return (
     <div style={reviewFormStyles}>
-    <form onSubmit={handleNewReviewSubmission}>
+    <form onSubmit={this.handleSubmit}>
     <input style={inputStyles}
     type='text'
     id='name'
-    placeholder='Your Name'
-    ref={(input) => {_name = input;}}/>
+    placeholder='Your Name'/>
     <input style={inputStyles}
     type='text'
     id='content'
-    placeholder='Review Content'
-    ref={(input) => {_content = input;}}/>
+    placeholder='Review Content'/>
     <Button style={buttonColors} type='submit'>Submit!</Button>
     </form>
     </div>
   );
 }
-
-ReviewAdd.propTypes = {
-  onNewReviewCreation: PropTypes.func
-};
-
+}
 export default ReviewAdd;

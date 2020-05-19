@@ -2,36 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
 
-function MhpAdd(props) {
-  let _name = null;
-  let _occupation = null;
-  let _insurance = null;
-  let _address = null;
-  let _accepting = null;
-  let _email = null;
-  let _phone = null;
-  let _link = null;
-  let _bio = null;
-  let _imgref = null;
-  let _latitude = null;
-  let _longitude = null;
-
-  function handleNewMhpSubmission(event) {
-    event.preventDefault();
-    props.onNewMhpCreation({name: _name.value, occupation: _occupation.value, insurance: _insurance.value, address: _address.value, accepting: _accepting.value, email: _email.value, phone: _phone.value, link: _link.value, bio: _bio.value, imgref: _imgref.value, latitude: _latitude.value, longitude: _longitude.value,});
-    _name.value = '';
-    _occupation.value = '';
-    _insurance.value = '';
-    _address.value = '';
-    _accepting.value = '';
-    _email.value = '';
-    _phone.value = '';
-    _link.value = '';
-    _bio.value = '';
-    _imgref.value = '';
-    _latitude.value = '';
-    _longitude.value = '';
+class MhpAdd extends React.Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    
+    fetch('http://localhost:3000/mhps?', {
+      method: 'POST',
+      body: data,
+    });
+  }
+
+  render() {
   const MhpFormStyles = {
     margin: '40px',
     textAlign: 'center',
@@ -57,75 +44,60 @@ function MhpAdd(props) {
   }
   return (
     <div style={MhpFormStyles}>
-    <form onSubmit={handleNewMhpSubmission}>
+    <form onSubmit={this.handleSubmit}>
     <input style={inputStyles}
     type='text'
     id='name'
-    placeholder='Mental Health Practitioner name'
-    ref={(input) => {_name = input;}}/>
+    placeholder='Mental Health Practitioner name'/>
     <input style={inputStyles}
     type='text'
     id='occupation'
-    placeholder='Mental Health Practitioner occupation'
-    ref={(input) => {_occupation = input;}}/>
+    placeholder='Mental Health Practitioner occupation'/>
     <input style={inputStyles}
     type='text'
     id='insurance'
-    placeholder='Mental Health Practitioner insurance'
-    ref={(input) => {_insurance = input;}}/>
+    placeholder='Mental Health Practitioner insurance'/>
     <input style={inputStyles}
     type='text'
     id='address'
-    placeholder='Mental Health Practitioner address'
-    ref={(input) => {_address = input;}}/>
+    placeholder='Mental Health Practitioner address'/>
     <input style={inputStyles}
     type='text'
     id='accepting'
-    placeholder='Mental Health Practitioner accepting'
-    ref={(input) => {_accepting = input;}}/>
+    placeholder='Mental Health Practitioner accepting'/>
     <input style={inputStyles}
     type='text'
     id='email'
-    placeholder='Mental Health Practitioner email'
-    ref={(input) => {_email = input;}}/>
+    placeholder='Mental Health Practitioner email'/>
     <input style={inputStyles}
     type='text'
     id='phone'
-    placeholder='Mental Health Practitioner phone'
-    ref={(input) => {_phone = input;}}/>
+    placeholder='Mental Health Practitioner phone'/>
     <input style={inputStyles}
     type='text'
     id='link'
-    placeholder='Mental Health Practitioner website'
-    ref={(input) => {_link = input;}}/>
+    placeholder='Mental Health Practitioner website'/>
     <input style={inputStyles}
     type='text'
     id='bio'
-    placeholder='Mental Health Practitioner bio'
-    ref={(input) => {_bio = input;}}/>
+    placeholder='Mental Health Practitioner bio'/>
     <input style={inputStyles}
     type='text'
     id='imgref'
-    placeholder='Mental Health Practitioner imgref'
-    ref={(input) => {_imgref = input;}}/>
+    placeholder='Mental Health Practitioner imgref'/>
     <input style={inputStyles}
     type='text'
     id='latitude'
-    placeholder='Mental Health Practitioner latitude'
-    ref={(input) => {_latitude = input;}}/>
+    placeholder='Mental Health Practitioner latitude'/>
     <input style={inputStyles}
     type='text'
     id='longitude'
-    placeholder='Mental Health Practitioner longitude'
-    ref={(input) => {_longitude = input;}}/>
+    placeholder='Mental Health Practitioner longitude'/>
     <Button style={buttonColors} type='submit'>Submit!</Button>
     </form>
     </div>
   );
 }
-
-MhpAdd.propTypes = {
-  onNewMhpCreation: PropTypes.func
-};
+}
 
 export default MhpAdd;

@@ -1,19 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
 
-function ArticleAdd(props) {
-  let _name = null;
-  let _link = null;
-  let _description = null;
-
-  function handleNewArticleSubmission(event) {
-    event.preventDefault();
-    props.onNewArticleCreation({name: _name.value, link: _link.value, description: _description.value});
-    _name.value = '';
-    _link.value = '';
-    _description.value = '';
+class ArticleAdd extends React.Component {
+  constructor() {
+    super();
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    console.log(data);
+    
+    fetch('http://localhost:3000/articles?', {
+      method: 'POST',
+      body: data,
+    });
+  }
+
+  render() {
+
   const articleFormStyles = {
     margin: '40px',
     textAlign: 'center',
@@ -39,30 +45,24 @@ function ArticleAdd(props) {
   }
   return (
     <div style={articleFormStyles}>
-    <form onSubmit={handleNewArticleSubmission}>
+    <form onSubmit={this.handleSubmit}>
     <input style={inputStyles}
     type='text'
     id='name'
-    placeholder='Article Name'
-    ref={(input) => {_name = input;}}/>
+    placeholder='Article Name'/>
     <input style={inputStyles}
     type='text'
     id='link'
-    placeholder='Article URL'
-    ref={(input) => {_link = input;}}/>
+    placeholder='Article URL'/>
     <input style={inputStyles}
     type='text'
     id='description'
-    placeholder='Article Description'
-    ref={(input) => {_description = input;}}/>
+    placeholder='Article Description'/>
     <Button style={buttonColors} type='submit'>Submit!</Button>
     </form>
     </div>
   );
 }
-
-ArticleAdd.propTypes = {
-  onNewArticleCreation: PropTypes.func
-};
+}
 
 export default ArticleAdd;

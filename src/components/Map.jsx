@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import mapStyles from '../mapStyles';
 
@@ -74,7 +75,7 @@ color: '#fdfdff',
            />
            <div style={introStyles}>
              <h5>COVID-19:</h5>
-             <p>Due to the virus, many therapists are unavailable or only accepting clients virtually. Availability may vary. With quarantine in place, self care has become especially vital.<span><a> Click here </a></span>for tips to feel better in self isolation.</p>
+             <p>Due to the virus, many therapists are unavailable or only accepting clients virtually. Availability may vary. With quarantine in place, self care has become especially vital. <Link to="/coronaarticlelist"> Click here </Link>for tips to feel better in self isolation.</p>
            </div>
        </div>
     );

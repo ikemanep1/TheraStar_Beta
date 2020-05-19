@@ -3,6 +3,7 @@ import Map from './components/Map';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ArticleList from './components/ArticleList';
+import CoronaArticleList from './components/CoronaArticleList';
 import MhpList from './components/MhpList';
 import ReviewList from './components/ReviewList';
 import NewArticleControl from './components/NewArticleControl';
@@ -23,13 +24,9 @@ class App extends React.Component {
       state1Items: [],
       state2Items: [],
       state3Items: [],
-      masterMhpList: [],
-      masterArticleList: [],
-      masterReviewList: [],
+      state4Items: [],
       isLoaded: false,
     }
-    this.handleAddingNewArticleToList = this.handleAddingNewArticleToList.bind(this);
-    this.handleAddingNewReviewToList = this.handleAddingNewReviewToList.bind(this);
   };
 
   componentDidMount() {
@@ -57,25 +54,16 @@ class App extends React.Component {
         state3Items: json,
       })
     });
+    fetch('http://localhost:3000/coronalinks')
+    .then(res => res.json())
+    .then(json => {
+      this.setState({
+        isLoaded: true,
+        state4Items: json,
+      })
+    });
   }
 
-  handleAddingNewArticleToList(newArticle) {
-    let newMasterArticleList = this.state.masterArticleList.slice();
-    newMasterArticleList.push(newArticle);
-    this.setState({masterArticleList: newMasterArticleList});
-  }
-
-  handleAddingNewReviewToList(newReview) {
-    let newMasterReviewList = this.state.masterReviewList.slice();
-    newMasterReviewList.push(newReview);
-    this.setState({masterReviewList: newMasterReviewList});
-  }
-
-  handleAddingNewMhpToList(newMhp) {
-    let newMasterMhpList = this.state.masterMhpList.slice();
-    newMasterMhpList.push(newMhp);
-    this.setState({masterMhpList: newMasterMhpList});
-  }
   render() {
 
     const mhpSingular = {
@@ -87,10 +75,6 @@ class App extends React.Component {
       border: '3px solid #ddb0dd',
       fontFamily: 'luminari, fantasy',
       color: '#fdfdff'
-    }
-    const itemGrid = {
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr'
     }
     const { isLoaded } = this.state;
     if (!isLoaded) {
@@ -110,9 +94,10 @@ class App extends React.Component {
         <Route exact path='/mhplist' render={() =>< MhpList mhpTotal = {this.state.state1Items} />}/>
         <Route exact path='/articlelist' render={() =>< ArticleList articleTotal = {this.state.state2Items} />}/>
         <Route exact path='/reviewlist' render={() =>< ReviewList reviewTotal = {this.state.state3Items} />}/>
-        <Route path='/mhpadd' render={()=>< NewMhpControl onNewMhpCreation={this.handleAddingNewMhpToList} />} />
-        <Route path='/articleadd' render={()=>< NewArticleControl onNewArticleCreation={this.handleAddingNewArticleToList} />} />
-        <Route path='/reviewadd' render={()=>< NewReviewControl onNewReviewCreation={this.handleAddingNewReviewToList} />} />
+        <Route exact path='/coronaarticlelist' render={() =>< CoronaArticleList coronaArticleTotal = {this.state.state4Items} />}/>
+        <Route path='/mhpadd' render={()=>< NewMhpControl />} />
+        <Route path='/articleadd' render={()=>< NewArticleControl />} />
+        <Route path='/reviewadd' render={()=>< NewReviewControl />} />
         <Route component={Error404} />
         </Switch>
         <Footer />

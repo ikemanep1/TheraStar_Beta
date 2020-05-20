@@ -6,20 +6,21 @@ class ArticleAdd extends React.Component {
     super();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  
 
   handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
-    console.log(data);
-    
-    fetch('http://localhost:3000/articles?', {
+    console.log(this._name.value, this._link.value, this._description.value);
+    fetch(`http://localhost:3000/articles?name=${this._name.value}&link=${this._link.value}&description=${this._description.value}`, {
       method: 'POST',
-      body: data,
     });
   }
 
   render() {
-
+  let _name = null;
+  let _link = null;
+  let _description = null;
+  
   const articleFormStyles = {
     margin: '40px',
     textAlign: 'center',
@@ -49,15 +50,18 @@ class ArticleAdd extends React.Component {
     <input style={inputStyles}
     type='text'
     id='name'
-    placeholder='Article Name'/>
+    placeholder='Article Name'
+    ref={(input) => {this._name = input;}}/>
     <input style={inputStyles}
     type='text'
     id='link'
-    placeholder='Article URL'/>
+    placeholder='Article URL'
+    ref={(input) => {this._link = input;}}/>
     <input style={inputStyles}
     type='text'
     id='description'
-    placeholder='Article Description'/>
+    placeholder='Article Description'
+    ref={(input) => {this._description = input;}}/>
     <Button style={buttonColors} type='submit'>Submit!</Button>
     </form>
     </div>

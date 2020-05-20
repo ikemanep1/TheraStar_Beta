@@ -9,11 +9,9 @@ class ReviewAdd extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
-    
-    fetch('http://localhost:3000/reviews?', {
+    console.log(this._name.value, this._content.value);
+    fetch(`http://localhost:3000/reviews?name=${this._name.value}&content=${this._content.value}`, {
       method: 'POST',
-      body: data,
     });
   }
 
@@ -47,11 +45,13 @@ class ReviewAdd extends React.Component {
     <input style={inputStyles}
     type='text'
     id='name'
-    placeholder='Your Name'/>
+    placeholder='Your Name'
+    ref={(input) => {this._name = input;}}/>
     <input style={inputStyles}
     type='text'
     id='content'
-    placeholder='Review Content'/>
+    placeholder='Review Content'
+    ref={(input) => {this._content = input;}}/>
     <Button style={buttonColors} type='submit'>Submit!</Button>
     </form>
     </div>

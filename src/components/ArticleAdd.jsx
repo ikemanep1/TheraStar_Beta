@@ -17,9 +17,6 @@ class ArticleAdd extends React.Component {
   }
 
   render() {
-  let _name = null;
-  let _link = null;
-  let _description = null;
   
   const articleFormStyles = {
     margin: '40px',

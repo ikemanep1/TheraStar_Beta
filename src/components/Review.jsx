@@ -26,8 +26,6 @@ function Review(props){
 
 Review.propTypes = {
   name: PropTypes.string.isRequired,
-  subject: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
 };
 

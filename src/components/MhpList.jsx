@@ -1,5 +1,6 @@
 import React from "react";
 import Mhp from "./Mhp";
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function MhpList(props){
@@ -22,7 +23,8 @@ function MhpList(props){
     <p style={mhpIntro}>Below is a list of mental health practitioners local to Portland, Oregon, along with contact details and other useful information.</p>
     <div style={itemGrid}>
     {props.mhpTotal.map((mhp, index) =>
-      <Mhp name={mhp.name}
+      <Link to={`/mhpsingular/${index}`}>
+        <Mhp name={mhp.name}
       imgref={mhp.imgref}
       occupation={mhp.occupation}
       address={mhp.address}
@@ -33,7 +35,7 @@ function MhpList(props){
       bio={mhp.bio}
       link={mhp.link}
       key={index}
-      />
+      /></Link>
     )}
     </div>
     </div>

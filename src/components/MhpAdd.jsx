@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Button} from 'react-bootstrap';
 
 class MhpAdd extends React.Component {
@@ -10,21 +9,32 @@ class MhpAdd extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const data = new FormData(event.target);
-    
-    fetch('http://localhost:3000/mhps?', {
+    fetch(`http://localhost:3000/mhps?name=${this._name.value}&occupation=${this._occupation.value}&insurance=${this._insurance.value}&address=${this._address.value}&accepting=${this._accepting.value}&email=${this._email.value}&phone=${this._phone.value}&link=${this._link.value}&bio=${this._bio.value}&imgref=${this._imgref.value}&latitude=${this._latitude.value}&longitude=${this._longitude.value}`, {
       method: 'POST',
-      body: data,
     });
   }
 
   render() {
   const MhpFormStyles = {
-    margin: '40px',
+    marginLeft: '30%',
+    marginRight: '30%',
+    marginTop: '20px',
     textAlign: 'center',
     backgroundColor: '#7a387a',
     padding: '20px',
     borderRadius: '100px',
+    border: '3px solid #ddb0dd',
+    fontFamily: 'Arial',
+    color: '#fdfdff',
+  }
+  const MhpFormTypeStyles = {
+    marginLeft: '10%',
+    marginRight: '10%',
+    marginTop: '20px',
+    textAlign: 'center',
+    backgroundColor: '#c785c7',
+    padding: '20px',
+    borderRadius: '70px',
     border: '3px solid #ddb0dd',
     fontFamily: 'Arial',
     color: '#fdfdff',
@@ -40,59 +50,102 @@ class MhpAdd extends React.Component {
     borderRadius: '20px'
   }
   const inputStyles = {
-    margin: '10px'
+    margin: '10px',
+    width: '15vw',
+    borderRadius: '5px',
+    textAlign: 'center'
+  }
+  const noBullets = {
+    listStyleType: 'none'
   }
   return (
     <div style={MhpFormStyles}>
+      <h3>Mental Health Practitioner additions form:</h3>
     <form onSubmit={this.handleSubmit}>
-    <input style={inputStyles}
+      <ul style={noBullets}>
+      <div style={MhpFormTypeStyles}>
+    <li><input style={inputStyles}
     type='text'
     id='name'
-    placeholder='Mental Health Practitioner name'/>
-    <input style={inputStyles}
+    placeholder="name"
+    ref={(input) => {this._name = input;}}/></li>
+    <li><input style={inputStyles}
     type='text'
     id='occupation'
-    placeholder='Mental Health Practitioner occupation'/>
-    <input style={inputStyles}
+    placeholder="occupation"
+    ref={(input) => {this._occupation = input;}}/></li>
+    </div>
+    <div style={MhpFormTypeStyles}>
+    <p>Please list any and all forms of insurance that you currently accept:</p>
+    <li><input style={inputStyles}
     type='text'
     id='insurance'
-    placeholder='Mental Health Practitioner insurance'/>
-    <input style={inputStyles}
+    placeholder="accepted insurances"    
+    ref={(input) => {this._insurance = input;}}/></li>
+    </div>
+    <div style={MhpFormTypeStyles}>
+    <p>What is your office address? (leave 'remote' if you're working from home)</p>
+    <li><input style={inputStyles}
     type='text'
     id='address'
-    placeholder='Mental Health Practitioner address'/>
-    <input style={inputStyles}
+    placeholder="office address"
+    ref={(input) => {this._address = input;}}/></li>
+    </div>
+    <div style={MhpFormTypeStyles}>
+    <p>Are you currently accepting patients?</p>
+    <li><input style={inputStyles}
     type='text'
     id='accepting'
-    placeholder='Mental Health Practitioner accepting'/>
-    <input style={inputStyles}
+    placeholder="status"
+    ref={(input) => {this._accepting = input;}}/></li>
+    </div>
+    <div style={MhpFormTypeStyles}>
+    <p>Please provide your contact information, so that clients can reach you.</p>
+    <li><input style={inputStyles}
     type='text'
     id='email'
-    placeholder='Mental Health Practitioner email'/>
-    <input style={inputStyles}
+    placeholder="email"
+    ref={(input) => {this._email = input;}}/></li>
+    <li><input style={inputStyles}
     type='text'
     id='phone'
-    placeholder='Mental Health Practitioner phone'/>
-    <input style={inputStyles}
+    placeholder="phone number"
+    ref={(input) => {this._phone = input;}}/></li>
+    <p>Do you have a website that you would like to provide?</p>
+    <li><input style={inputStyles}
     type='text'
     id='link'
-    placeholder='Mental Health Practitioner website'/>
-    <input style={inputStyles}
-    type='text'
+    placeholder="website link"
+    ref={(input) => {this._link = input;}}/></li>
+    </div>
+    <div style={MhpFormTypeStyles}>
+    <p>Please give a quick (sentence or two) description of who you are and the work that you do.</p>
+    <li><input style={inputStyles}
+    type='textArea'
     id='bio'
-    placeholder='Mental Health Practitioner bio'/>
-    <input style={inputStyles}
+    placeholder="description"
+    ref={(input) => {this._bio = input;}}/></li>
+    </div>
+    <div style={MhpFormTypeStyles}>
+    <p>Please provide an image url of yourself.</p>
+    <li><input style={inputStyles}
     type='text'
     id='imgref'
-    placeholder='Mental Health Practitioner imgref'/>
-    <input style={inputStyles}
+    placeholder="image reference"
+    ref={(input) => {this._imgref = input;}}/></li>
+    <p>What are the latitude and longitude coordinates of your office? This is so that the office can show up on the map.</p>
+    <li><input style={inputStyles}
     type='text'
     id='latitude'
-    placeholder='Mental Health Practitioner latitude'/>
-    <input style={inputStyles}
+    placeholder="latitude"
+    ref={(input) => {this._latitude = input;}}/></li>
+    <li><input style={inputStyles}
     type='text'
     id='longitude'
-    placeholder='Mental Health Practitioner longitude'/>
+    placeholder="longitudes"
+    ref={(input) => {this._longitude = input;}}/></li>
+    </div>
+    </ul>
     <Button style={buttonColors} type='submit'>Submit!</Button>
     </form>
     </div>

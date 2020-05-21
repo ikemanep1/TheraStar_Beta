@@ -25,8 +25,8 @@ function Mhp(props){
   }
   return (
     <div style={mhpSingular}>
-    <p>{props.name}</p>
     <ul>
+    <p>{props.name}</p>
     <img src={props.imgref} alt="Logo" />
       <p>Field: {props.occupation}</p>
       <p>Office address: {props.address}</p>

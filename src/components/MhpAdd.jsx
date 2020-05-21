@@ -1,5 +1,7 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 
 class MhpAdd extends React.Component {
   constructor() {
@@ -147,6 +149,7 @@ class MhpAdd extends React.Component {
     </div>
     </ul>
     <Button style={buttonColors} type='submit'>Submit!</Button>
+    <Link to="/mhplist"><Button style={buttonColors} type='submit'>Therapists</Button></Link>
     </form>
     </div>
   );

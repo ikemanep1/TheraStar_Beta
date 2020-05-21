@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class ArticleAdd extends React.Component {
   constructor() {
@@ -81,6 +82,7 @@ class ArticleAdd extends React.Component {
     placeholder='Article Description'
     ref={(input) => {this._description = input;}}/>
     </div>
+    <Link to="/reviewlist"><Button style={buttonColors} type='submit'>Resources</Button></Link>
     <Button style={buttonColors} type='submit'>Submit!</Button>
     </form>
     </div>

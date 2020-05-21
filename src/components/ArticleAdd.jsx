@@ -18,16 +18,31 @@ class ArticleAdd extends React.Component {
 
   render() {
   
-  const articleFormStyles = {
-    margin: '40px',
-    textAlign: 'center',
-    backgroundColor: '#7a387a',
-    padding: '20px',
-    borderRadius: '100px',
-    border: '3px solid #ddb0dd',
-    fontFamily: 'Arial',
-    color: '#fdfdff',
-  }
+    const ArticleFormStyles = {
+      marginLeft: '30%',
+      marginRight: '30%',
+      marginTop: '20px',
+      textAlign: 'center',
+      backgroundColor: '#7a387a',
+      padding: '20px',
+      borderRadius: '100px',
+      border: '3px solid #ddb0dd',
+      fontFamily: 'Arial',
+      color: '#fdfdff',
+    }
+    const ArticleFormTypeStyles = {
+      marginLeft: '10%',
+      marginRight: '10%',
+      marginTop: '15px',
+      marginBottom: '5px',
+      textAlign: 'center',
+      backgroundColor: '#c785c7',
+      padding: '20px',
+      borderRadius: '70px',
+      border: '3px solid #ddb0dd',
+      fontFamily: 'Arial',
+      color: '#fdfdff',
+    }
   const buttonColors = {
     marginLeft: '10px',
     border: "3px solid #ffccff",
@@ -42,8 +57,10 @@ class ArticleAdd extends React.Component {
     margin: '10px'
   }
   return (
-    <div style={articleFormStyles}>
+    <div style={ArticleFormStyles}>
     <form onSubmit={this.handleSubmit}>
+      <div style={ArticleFormTypeStyles}>
+      <p>What is the name and URL of the article?</p>
     <input style={inputStyles}
     type='text'
     id='name'
@@ -54,11 +71,15 @@ class ArticleAdd extends React.Component {
     id='link'
     placeholder='Article URL'
     ref={(input) => {this._link = input;}}/>
+    </div>
+    <div style={ArticleFormTypeStyles}>
+      <p>Please give a description of the article, and what points it covers.</p>
     <input style={inputStyles}
     type='text'
     id='description'
     placeholder='Article Description'
     ref={(input) => {this._description = input;}}/>
+    </div>
     <Button style={buttonColors} type='submit'>Submit!</Button>
     </form>
     </div>

@@ -19,7 +19,6 @@ function Mhp(props){
   const mhpSingularPortions = {
     marginRight: '10%',
     marginTop: '15px',
-    // marginBottom: '5px',
     textAlign: 'center',
     backgroundColor: '#c785c7',
     padding: '20px',

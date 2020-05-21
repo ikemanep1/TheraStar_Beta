@@ -11,25 +11,42 @@ function Article(props){
     borderRadius: '100px',
     border: '3px solid #ddb0dd',
     fontFamily: 'Arial',
-    color: '#fdfdff'
+    color: '#fdfdff',
+    alignItems: 'center'
+  }
+  const articleSingularPortions = {
+    margin: '20px',
+    marginTop: '15px',
+    textAlign: 'center',
+    backgroundColor: '#c785c7',
+    padding: '20px',
+    borderRadius: '70px',
+    border: '3px solid #ddb0dd',
+    fontFamily: 'Arial',
+    color: '#fdfdff',
   }
   const buttonColors = {
-    marginLeft: '10px',
+    margin: '10px',
     border: "3px solid #ffccff",
     color: "white",
     backgroundColor: "#c06cc6",
     padding: "10px",
     textDecoration: 'none',
     fontSize: '20px',
-    borderRadius: '20px'
+    borderRadius: '20px',
+    alignItems: 'center',
   }
   return (
     <div style={articleSingular}>
-    <p>Article: {props.name}</p>
+      <div style={articleSingularPortions}>
+    <h5>{props.name}</h5>
+    </div>
+    <div style={articleSingularPortions}>
     <ul>
-    <a href={props.link} ><Button style={buttonColors}>Read it here!</Button></a>
-    <p>About this article: {props.description}</p>
+    <p>{props.description}</p>
     </ul>
+      </div>
+    <a href={props.link} ><Button style={buttonColors}>Article</Button></a>
     </div>
   );
 }

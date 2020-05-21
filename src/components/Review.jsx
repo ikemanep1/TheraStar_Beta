@@ -37,6 +37,8 @@ function Review(props){
     <div style={reviewSingular}>
       <div style={reviewSingularPortions}>
     <h5>{props.name}</h5>
+    </div>
+    <div style={reviewSingularPortions}>
     <p>"{props.content}"</p>
     </div>
     </div>

@@ -37,6 +37,7 @@ class App extends React.Component {
         isLoaded: true,
         state1Items: json,
       })
+      console.log(this.state.state1Items[0])
     });
     fetch('https://shrouded-stream-63622.herokuapp.com/articles')
     .then(res => res.json())

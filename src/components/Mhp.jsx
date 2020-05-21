@@ -17,10 +17,9 @@ function Mhp(props){
     color: '#fdfdff'
   }
   const mhpSingularPortions = {
-    marginLeft: '10%',
     marginRight: '10%',
     marginTop: '15px',
-    marginBottom: '5px',
+    // marginBottom: '5px',
     textAlign: 'center',
     backgroundColor: '#c785c7',
     padding: '20px',
@@ -42,32 +41,60 @@ function Mhp(props){
   }
   const itemGrid = {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr'
+    gridTemplateColumns: '1fr 1fr',
+    justifyItems: 'center'
+  }
+  const nameStyles = {
+    margin: '40%',
+    marginTop: '15px',
+    marginBottom: '5px',
+    textAlign: 'center',
+    backgroundColor: '#c785c7',
+    padding: '20px',
+    borderRadius: '70px',
+    border: '3px solid #ddb0dd',
+    fontFamily: 'Arial',
+    color: '#fdfdff',
+    margin: 'auto',
+    width: '20vw'
   }
   
   return (
     <div style={mhpSingular}>
+    <h5 style={nameStyles}>{props.name}</h5>
     <ul style={itemGrid}>
+
+
     <div style={mhpSingularPortions}>
-    <p>{props.name}</p>
-    <img src={props.imgref} alt="Logo" />
+      <h6>Field:</h6>
       <p>{props.occupation}</p>
       </div>
+
       <div style={mhpSingularPortions}>
-      <p>Office address:</p>
+      <h6>Office address:</h6>
       <p>{props.address}</p>
       </div>
+
+
       <div style={mhpSingularPortions}>
-      <p>Contact info:
-      {props.email}
-      {props.phone}</p>
+      <h6>Contact info:</h6>
+      <p>{props.email}</p>
+      <p>{props.phone}</p>
       </div>
+
       <div style={mhpSingularPortions}>
-      <p>Accepted forms of insurance: {props.insurance}</p>
-      <p>Status: {props.accepting}</p>
+        <h6>Accepted forms of insurance:</h6>
+      <p>{props.insurance}</p>
       </div>
+      
       <div style={mhpSingularPortions}>
-      <p>About: {props.bio}</p>
+        <h6>Status: </h6>
+      <p>{props.accepting}</p>
+      </div>
+
+      <div style={mhpSingularPortions}>
+        <h6>About: </h6>
+      <p>{props.bio}</p>
       <a href={props.link} ><Button style={buttonColors}>Website</Button></a>
       </div>
     </ul>
@@ -85,7 +112,7 @@ Mhp.propTypes = {
   phone: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  imgref: PropTypes.string.isRequired,
+  // imgref: PropTypes.string.isRequired,
   latitude: PropTypes.string.isRequired,
   longitude: PropTypes.string.isRequired,
 };

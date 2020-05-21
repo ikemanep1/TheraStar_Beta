@@ -11,7 +11,7 @@ class MhpAdd extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch(`http://localhost:3000/mhps?name=${this._name.value}&occupation=${this._occupation.value}&insurance=${this._insurance.value}&address=${this._address.value}&accepting=${this._accepting.value}&email=${this._email.value}&phone=${this._phone.value}&link=${this._link.value}&bio=${this._bio.value}&imgref=${this._imgref.value}&latitude=${this._latitude.value}&longitude=${this._longitude.value}`, {
+    fetch(`https://shrouded-stream-63622.herokuapp.com/mhps?name=${this._name.value}&occupation=${this._occupation.value}&insurance=${this._insurance.value}&address=${this._address.value}&accepting=${this._accepting.value}&email=${this._email.value}&phone=${this._phone.value}&link=${this._link.value}&bio=${this._bio.value}&imgref=${this._imgref.value}&latitude=${this._latitude.value}&longitude=${this._longitude.value}`, {
       method: 'POST',
     });
   }

@@ -11,7 +11,7 @@ class ReviewAdd extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this._name.value, this._content.value);
-    fetch(`http://localhost:3000/reviews?name=${this._name.value}&content=${this._content.value}`, {
+    fetch(`https://shrouded-stream-63622.herokuapp.com/reviews?name=${this._name.value}&content=${this._content.value}`, {
       method: 'POST',
     });
   }

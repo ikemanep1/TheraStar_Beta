@@ -47,7 +47,7 @@ class App extends React.Component {
         state2Items: json,
       })
     });
-    fetch('http://localhost:3000/reviews')
+    fetch('https://shrouded-stream-63622.herokuapp.com/reviews')
     .then(res => res.json())
     .then(json => {
       this.setState({
@@ -55,14 +55,14 @@ class App extends React.Component {
         state3Items: json,
       })
     });
-    fetch('http://localhost:3000/coronalinks')
-    .then(res => res.json())
-    .then(json => {
-      this.setState({
-        isLoaded: true,
-        state4Items: json,
-      })
-    });
+    // fetch('http://localhost:3000/coronalinks')
+    // .then(res => res.json())
+    // .then(json => {
+    //   this.setState({
+    //     isLoaded: true,
+    //     state4Items: json,
+    //   })
+    // });
   }
 
   render() {
@@ -95,7 +95,7 @@ class App extends React.Component {
         <Route exact path='/mhplist' render={() =>< MhpList mhpTotal = {this.state.state1Items} />}/>
         <Route exact path='/articlelist' render={() =>< ArticleList articleTotal = {this.state.state2Items} />}/>
         <Route exact path='/reviewlist' render={() =>< ReviewList reviewTotal = {this.state.state3Items} />}/>
-        <Route exact path='/coronaarticlelist' render={() =>< CoronaArticleList coronaArticleTotal = {this.state.state4Items} />}/>
+        {/* <Route exact path='/coronaarticlelist' render={() =>< CoronaArticleList coronaArticleTotal = {this.state.state4Items} />}/> */}
         <Route path='/mhpadd' render={()=>< NewMhpControl />} />
         <Route path='/articleadd' render={()=>< NewArticleControl />} />
         <Route path='/reviewadd' render={()=>< NewReviewControl />} />

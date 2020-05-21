@@ -12,7 +12,7 @@ class ArticleAdd extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this._name.value, this._link.value, this._description.value);
-    fetch(`http://localhost:3000/articles?name=${this._name.value}&link=${this._link.value}&description=${this._description.value}`, {
+    fetch(`https://shrouded-stream-63622.herokuapp.com?name=${this._name.value}&link=${this._link.value}&description=${this._description.value}`, {
       method: 'POST',
     });
   }

@@ -23,7 +23,6 @@ function MhpList(props){
     <p style={mhpIntro}>Below is a list of mental health practitioners local to Portland, Oregon, along with contact details and other useful information.</p>
     <div style={itemGrid}>
     {props.mhpTotal.map((mhp, index) =>
-      <Link to={`/mhpsingular/${index}`}>
         <Mhp name={mhp.name}
       imgref={mhp.imgref}
       occupation={mhp.occupation}
@@ -35,7 +34,7 @@ function MhpList(props){
       bio={mhp.bio}
       link={mhp.link}
       key={index}
-      /></Link>
+      />
     )}
     </div>
     </div>

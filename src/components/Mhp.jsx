@@ -4,7 +4,10 @@ import {Button} from 'react-bootstrap';
 
 function Mhp(props){
   const mhpSingular = {
-    margin: '40px',
+    marginLeft: '10%',
+    marginRight: '10%',
+    marginTop: '40px',
+    marginBottom: '20px',
     textAlign: 'center',
     backgroundColor: '#7a387a',
     padding: '20px',
@@ -13,8 +16,22 @@ function Mhp(props){
     fontFamily: 'Arial',
     color: '#fdfdff'
   }
+  const mhpSingularPortions = {
+    marginLeft: '10%',
+    marginRight: '10%',
+    marginTop: '15px',
+    marginBottom: '5px',
+    textAlign: 'center',
+    backgroundColor: '#c785c7',
+    padding: '20px',
+    borderRadius: '70px',
+    border: '3px solid #ddb0dd',
+    fontFamily: 'Arial',
+    color: '#fdfdff',
+  }
   const buttonColors = {
-    marginLeft: '10px',
+    marginLeft: '10%',
+    marginRight: '10%',
     border: "3px solid #ffccff",
     color: "white",
     backgroundColor: "#c06cc6",
@@ -23,19 +40,36 @@ function Mhp(props){
     fontSize: '20px',
     borderRadius: '20px'
   }
+  const itemGrid = {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr'
+  }
+  
   return (
     <div style={mhpSingular}>
-    <ul>
+    <ul style={itemGrid}>
+    <div style={mhpSingularPortions}>
     <p>{props.name}</p>
     <img src={props.imgref} alt="Logo" />
-      <p>Field: {props.occupation}</p>
-      <p>Office address: {props.address}</p>
+      <p>{props.occupation}</p>
+      </div>
+      <div style={mhpSingularPortions}>
+      <p>Office address:</p>
+      <p>{props.address}</p>
+      </div>
+      <div style={mhpSingularPortions}>
+      <p>Contact info:
+      {props.email}
+      {props.phone}</p>
+      </div>
+      <div style={mhpSingularPortions}>
       <p>Accepted forms of insurance: {props.insurance}</p>
       <p>Status: {props.accepting}</p>
-      <p>Email Address: {props.email}</p>
-      <p>Office Number: {props.phone}</p>
+      </div>
+      <div style={mhpSingularPortions}>
       <p>About: {props.bio}</p>
       <a href={props.link} ><Button style={buttonColors}>Website</Button></a>
+      </div>
     </ul>
   </div>
    );

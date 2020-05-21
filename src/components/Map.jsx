@@ -31,8 +31,8 @@ color: '#fdfdff',
       <Marker
       key={index}
       position={{
-        lat: parseInt(marker.latitude),
-        lng: parseInt(marker.longitude)
+        lat: parseFloat(marker.latitude),
+        lng: parseFloat(marker.longitude)
       }}
       
           onClick={() => {
@@ -52,8 +52,8 @@ color: '#fdfdff',
                     setSelectedMhp(null);
                   }}
                   position={{
-                    lat: parseInt(selectedMhp.latitude),
-                    lng: parseInt(selectedMhp.longitude)
+                    lat: parseFloat(selectedMhp.latitude),
+                    lng: parseFloat(selectedMhp.longitude)
                   }}
                 >
                   <div>

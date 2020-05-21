@@ -30,7 +30,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/mhps')
+    fetch('https://shrouded-stream-63622.herokuapp.com/mhps')
     .then(res => res.json())
     .then(json => {
       this.setState({
@@ -38,7 +38,7 @@ class App extends React.Component {
         state1Items: json,
       })
     });
-    fetch('http://localhost:3000/articles')
+    fetch('https://shrouded-stream-63622.herokuapp.com/articles')
     .then(res => res.json())
     .then(json => {
       this.setState({
@@ -46,7 +46,7 @@ class App extends React.Component {
         state2Items: json,
       })
     });
-    fetch('http://localhost:3000/reviews')
+    fetch('https://shrouded-stream-63622.herokuapp.com/reviews')
     .then(res => res.json())
     .then(json => {
       this.setState({

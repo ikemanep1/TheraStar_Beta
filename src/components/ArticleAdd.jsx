@@ -54,7 +54,8 @@ class ArticleAdd extends React.Component {
     borderRadius: '20px'
   }
   const inputStyles = {
-    margin: '10px'
+    margin: '10px',
+    textAlign: 'center'
   }
   return (
     <div style={ArticleFormStyles}>

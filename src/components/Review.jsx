@@ -3,7 +3,10 @@ import PropTypes from "prop-types";
 
 function Review(props){
   const reviewSingular = {
-    margin: '40px',
+    marginLeft: '10%',
+    marginRight: '10%',
+    marginTop: '40px',
+    marginBottom: '20px',
     textAlign: 'center',
     backgroundColor: '#7a387a',
     padding: '20px',
@@ -12,12 +15,30 @@ function Review(props){
     fontFamily: 'Arial',
     color: '#fdfdff'
   }
+
+  const reviewSingularPortions = {
+    margin: '10px',
+    textAlign: 'center',
+    backgroundColor: '#c785c7',
+    padding: '20px',
+    borderRadius: '70px',
+    border: '3px solid #ddb0dd',
+    fontFamily: 'Arial',
+    color: '#fdfdff',
+  }
+
+  const itemGrid = {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    justifyItems: 'center'
+  }
+  
   return (
     <div style={reviewSingular}>
-    <p>{props.name} had this to say:</p>
-    <ul>
+      <div style={reviewSingularPortions}>
+    <h5>{props.name}</h5>
     <p>"{props.content}"</p>
-    </ul>
+    </div>
     </div>
   );
 }

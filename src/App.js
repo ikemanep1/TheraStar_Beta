@@ -47,7 +47,7 @@ class App extends React.Component {
         state2Items: json,
       })
     });
-    fetch('https://shrouded-stream-63622.herokuapp.com/reviews')
+    fetch('http://localhost:3000/reviews')
     .then(res => res.json())
     .then(json => {
       this.setState({

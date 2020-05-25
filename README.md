@@ -10,7 +10,7 @@ _This is a REACT project that fetches data from a deployed API containing inform
 
 ### Setup/Installation Requirements
 
-* _1: Navigate to https://lit-sea-37901.herokuapp.com/#/_
+* _1: Navigate to https://salty-peak-96629.herokuapp.com/#/
 
 # specs
 
@@ -37,8 +37,6 @@ _I used jquery, and javaScript, along with atom and github. I also used the foll
 -ESlint
 
 -Webpack
-
--Plugins
 
 -REACT
 
